@@ -32,10 +32,12 @@ function timer() {
 }
 
 function stopTimer(){
+  if( hour === 0 && min === 0 && sec === 0) return;
   clearInterval(timerId);
   div.textContent = `Stopped`;
 }
 function pauseTimer(){
+  if( hour === 0 && min === 0 && sec === 0) return;
   timerId = setInterval(timer, 1000);
 }
 
