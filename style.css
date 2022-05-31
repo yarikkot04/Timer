@@ -1,0 +1,27 @@
+.timer{
+  background-color: pink;
+  border: 5px black solid;
+  border-radius: 25px;
+  width: 150px;
+  height: 50px;
+  padding: 20px;
+  text-align: center;
+  font-size: 35px;
+}
+.stop{
+  background-color: black;
+  color: aliceblue;
+  border: 5px purple solid;
+  padding: 10px;
+  width: 70px;
+  border-radius: 25px;
+  margin-left: 25px;
+}
+.run{
+  background-color: black;
+  color: aliceblue;
+  border: 5px purple solid;
+  padding: 10px;
+  width: 70px;
+  border-radius: 25px;
+}
