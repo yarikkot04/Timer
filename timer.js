@@ -7,6 +7,7 @@ const div = document.querySelector('.timer');
 let hour = parseInt(data.slice(0, 2));
 let min = parseInt(data.slice(3, 5));
 let sec = parseInt(data.slice(6, 8));
+let stop = false;
 
 function timer() {
   if (sec > 0) {
@@ -18,27 +19,31 @@ function timer() {
     hour--;
     min = 59;
     sec = 59;
-  }else{
-    alert(`TIme is up!`);
+  } else {
+    alert(`Time is up!`);
     clearInterval(timerId);
   }
   let elHour = hour;
   let elMin = min;
   let elSec = sec;
-  if(hour<10) elHour = '0' + hour;
-  if(min<10) elMin = '0' + min;
-  if(sec<10) elSec = '0' + sec;
+  if (hour < 10) elHour = '0' + hour;
+  if (min < 10) elMin = '0' + min;
+  if (sec < 10) elSec = '0' + sec;
   div.textContent = `${elHour}:${elMin}:${elSec}`;
 }
 
-function stopTimer(){
-  if( hour === 0 && min === 0 && sec === 0) return;
+function stopTimer() {
+  if (hour === 0 && min === 0 && sec === 0) return;
   clearInterval(timerId);
   div.textContent = `Stopped`;
+  stop = true;
+
 }
-function pauseTimer(){
-  if( hour === 0 && min === 0 && sec === 0) return;
-  timerId = setInterval(timer, 1000);
+function runTimer() {
+  if (!stop) return;
+  if (hour === 0 && min === 0 && sec === 0) return;
+  if (stop) timerId = setInterval(timer, 1000);
+  stop = false;
 }
 
 let timerId = setInterval(timer, 1000);
